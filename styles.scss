@@ -46,8 +46,7 @@
   width: $width;
 }
 
-html,
-body {
+html, body {
   height: 100%;
   width: 100%;
   background: var(--bg);
@@ -83,6 +82,10 @@ body {
   gap: 0.25rem;
   width: 50%;
 
+  @media (max-width: 768px) {
+    width: 100%; 
+  }
+
   input[type="radio"] {
     display: none;
   }
@@ -94,6 +97,7 @@ body {
     text-align: center;
     color: var(--number-color);
   }
+
   input:checked + label {
     --number-color: #38383852;
     background: var(--number-color);
@@ -118,44 +122,101 @@ input[type="number"]::-webkit-outer-spin-button {
   @include dimensions();
   padding: 2rem 4rem;
   gap: 2rem;
+
+  @media (max-width: 768px) {
+    padding: 1.25rem;
+  }
+
   .main-text-container {
     @include flexBox();
     gap: 2rem;
+
     .main-text {
       font-size: 5vw;
       text-align: center;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: -3px;
+
+      @media (max-width: 768px) {
+        font-size: 10vw; 
+        letter-spacing: -1px;
+      }
     }
+
     .helper-text {
       @include dimensions($height: fit-content, $width: 50%);
       font-size: 1.5vw;
       letter-spacing: 2px;
+
+      @media (max-width: 768px) {
+        width: 100%;      
+        font-size: 3.5vw;  
+      }
     }
   }
+
   .content {
     flex: 1;
     @include flexBox($direction: row);
     gap: 2rem;
+
+    @media (max-width: 768px) {
+      flex-direction: column; 
+    }
+
     .form-container {
       flex: 1;
       padding: 2rem;
       gap: 2rem;
       @include flexBox();
+
+      @media (max-width: 768px) {
+        padding: 1rem;
+      }
+
       .header {
         font-size: 2.5rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        @media (max-width: 768px) {
+          font-size: 1.75rem;
+        }
+
+        .reset-button {
+          padding: 0.5rem 2rem;
+          background: #9fdc3c28;
+          border: 1px solid var(--secondary-text);
+          color: var(--secondary-text);
+          border-radius: 0.4rem;
+          font-size: 1.5rem;
+
+          @media (max-width: 768px) {
+            font-size: 1rem;   
+            padding: 0.4rem 1rem;
+          }
+        }
       }
+
       .form {
         flex: 1;
         @include flexBox();
         gap: 2rem;
+
         .form-group {
           @include flexBox();
           gap: 0.5rem;
+
           label {
             font-size: 1.75rem;
+
+            @media (max-width: 768px) {
+              font-size: 1.25rem; 
+            }
           }
+
           input {
             background: transparent;
             border: 1px solid var(--ternery-text);
@@ -163,12 +224,18 @@ input[type="number"]::-webkit-outer-spin-button {
             color: var(--primary-text);
             border-radius: 0.5rem;
             font-size: 1.25rem;
+
+            @media (max-width: 768px) {
+              font-size: 1rem; 
+            }
+
             &:focus-visible {
               outline: none;
               border: 1px solid var(--secondary-text);
             }
           }
         }
+
         .submit-btn {
           background: var(--secondary-text);
           padding: 1rem;
@@ -176,31 +243,137 @@ input[type="number"]::-webkit-outer-spin-button {
           border-radius: 3rem;
           font-weight: 600;
           font-size: 1rem;
+          cursor: pointer;
         }
       }
     }
-    .output-container {
+
+    .secondary-container {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
       flex: 1;
-      @include flexBox();
-      padding: 1rem;
-      gap: 1rem;
-      .header {
-        font-size: 2rem;
+
+      .output-container {
+        flex: 1;
+        @include flexBox();
+        padding: 1rem;
+        gap: 1rem;
+
+        .header {
+          font-size: 2rem;
+
+          @media (max-width: 768px) {
+            font-size: 1.5rem;
+          }
+        }
+
+        .output-number {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 200px;
+          font-size: 4rem;
+          --ternery-text: #38383811;
+          background: var(--ternery-text);
+          border-radius: 0.5rem;
+          color: var(--number-color);
+          font-weight: 700;
+
+          @media (max-width: 768px) {
+            height: 140px;   
+            font-size: 3rem; 
+          }
+        }
+
+        .footer {
+          font-size: 1.25rem;
+
+          @media (max-width: 768px) {
+            font-size: 1rem;
+          }
+        }
       }
-      .output-number{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 200px;
-        font-size: 4rem;
-        --ternery-text: #38383811;
-        background: var(--ternery-text);
-        border-radius:0.5rem;
-        color: var(--number-color);
-        font-weight: 700;
-      }
-      .footer{
-        font-size: 1.25rem;
+
+      .history {
+        flex: 1;
+        padding: 1rem;
+
+        .header {
+          font-size: 2.5rem;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+
+          @media (max-width: 768px) {
+            font-size: 1.75rem;
+          }
+
+          .reset-history-button {
+            padding: 0.5rem 2rem;
+            background: #9fdc3c28;
+            border: 1px solid var(--secondary-text);
+            color: var(--secondary-text);
+            border-radius: 0.4rem;
+            font-size: 1.5rem;
+
+            @media (max-width: 768px) {
+              font-size: 1rem;
+              padding: 0.4rem 1rem;
+            }
+          }
+        }
+
+        .history-container {
+          display: flex;
+          flex-direction: column;
+          gap: 0.5rem;
+          margin-top: 1rem; 
+
+          .history-data {
+            display: flex;
+            font-size: 1.25rem;
+            justify-content: space-between;
+            padding: 0.5rem;
+            border-bottom: 1px solid var(--ternery-text);
+
+            @media (max-width: 768px) {
+              font-size: 1rem; 
+              flex-wrap: wrap; 
+              gap: 0.5rem;
+            }
+
+            .name {
+              display: flex;
+              gap: 0.5rem;
+              align-items: center;
+
+              .category {
+                background: #14382175;
+                padding: 0.25rem;
+                border-radius: 0.25rem;
+              }
+            }
+
+            .index {
+              display: flex;
+              gap: 1rem;
+              align-items: center;
+
+              button {
+                background: transparent;
+                color: var(--number-color);
+                border: none;
+                font-size: 1.25rem;
+                cursor: pointer;
+
+                @media (max-width: 768px) {
+                  font-size: 1rem;
+                }
+              }
+            }
+          }
+        }
       }
     }
   }

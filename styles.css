@@ -32,8 +32,7 @@
   src: url(./fonts/GoogleSans-Bold.ttf);
   font-weight: 700;
 }
-html,
-body {
+html, body {
   height: 100%;
   width: 100%;
   background: var(--bg);
@@ -68,6 +67,11 @@ body {
   padding: 0.25rem;
   gap: 0.25rem;
   width: 50%;
+}
+@media (max-width: 768px) {
+  .radio-wrapper {
+    width: 100%;
+  }
 }
 .radio-wrapper input[type=radio] {
   display: none;
@@ -105,6 +109,11 @@ input[type=number]::-webkit-outer-spin-button {
   padding: 2rem 4rem;
   gap: 2rem;
 }
+@media (max-width: 768px) {
+  .main {
+    padding: 1.25rem;
+  }
+}
 .main .main-text-container {
   display: flex;
   flex-direction: column;
@@ -117,6 +126,12 @@ input[type=number]::-webkit-outer-spin-button {
   text-transform: uppercase;
   letter-spacing: -3px;
 }
+@media (max-width: 768px) {
+  .main .main-text-container .main-text {
+    font-size: 10vw;
+    letter-spacing: -1px;
+  }
+}
 .main .main-text-container .helper-text {
   height: -moz-fit-content;
   height: fit-content;
@@ -124,11 +139,22 @@ input[type=number]::-webkit-outer-spin-button {
   font-size: 1.5vw;
   letter-spacing: 2px;
 }
+@media (max-width: 768px) {
+  .main .main-text-container .helper-text {
+    width: 100%;
+    font-size: 3.5vw;
+  }
+}
 .main .content {
   flex: 1;
   display: flex;
   flex-direction: row;
   gap: 2rem;
+}
+@media (max-width: 768px) {
+  .main .content {
+    flex-direction: column;
+  }
 }
 .main .content .form-container {
   flex: 1;
@@ -137,8 +163,35 @@ input[type=number]::-webkit-outer-spin-button {
   display: flex;
   flex-direction: column;
 }
+@media (max-width: 768px) {
+  .main .content .form-container {
+    padding: 1rem;
+  }
+}
 .main .content .form-container .header {
   font-size: 2.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+@media (max-width: 768px) {
+  .main .content .form-container .header {
+    font-size: 1.75rem;
+  }
+}
+.main .content .form-container .header .reset-button {
+  padding: 0.5rem 2rem;
+  background: rgba(159, 220, 60, 0.1568627451);
+  border: 1px solid var(--secondary-text);
+  color: var(--secondary-text);
+  border-radius: 0.4rem;
+  font-size: 1.5rem;
+}
+@media (max-width: 768px) {
+  .main .content .form-container .header .reset-button {
+    font-size: 1rem;
+    padding: 0.4rem 1rem;
+  }
 }
 .main .content .form-container .form {
   flex: 1;
@@ -154,6 +207,11 @@ input[type=number]::-webkit-outer-spin-button {
 .main .content .form-container .form .form-group label {
   font-size: 1.75rem;
 }
+@media (max-width: 768px) {
+  .main .content .form-container .form .form-group label {
+    font-size: 1.25rem;
+  }
+}
 .main .content .form-container .form .form-group input {
   background: transparent;
   border: 1px solid var(--ternery-text);
@@ -161,6 +219,11 @@ input[type=number]::-webkit-outer-spin-button {
   color: var(--primary-text);
   border-radius: 0.5rem;
   font-size: 1.25rem;
+}
+@media (max-width: 768px) {
+  .main .content .form-container .form .form-group input {
+    font-size: 1rem;
+  }
 }
 .main .content .form-container .form .form-group input:focus-visible {
   outline: none;
@@ -173,18 +236,30 @@ input[type=number]::-webkit-outer-spin-button {
   border-radius: 3rem;
   font-weight: 600;
   font-size: 1rem;
+  cursor: pointer;
 }
-.main .content .output-container {
+.main .content .secondary-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  flex: 1;
+}
+.main .content .secondary-container .output-container {
   flex: 1;
   display: flex;
   flex-direction: column;
   padding: 1rem;
   gap: 1rem;
 }
-.main .content .output-container .header {
+.main .content .secondary-container .output-container .header {
   font-size: 2rem;
 }
-.main .content .output-container .output-number {
+@media (max-width: 768px) {
+  .main .content .secondary-container .output-container .header {
+    font-size: 1.5rem;
+  }
+}
+.main .content .secondary-container .output-container .output-number {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -196,6 +271,93 @@ input[type=number]::-webkit-outer-spin-button {
   color: var(--number-color);
   font-weight: 700;
 }
-.main .content .output-container .footer {
+@media (max-width: 768px) {
+  .main .content .secondary-container .output-container .output-number {
+    height: 140px;
+    font-size: 3rem;
+  }
+}
+.main .content .secondary-container .output-container .footer {
   font-size: 1.25rem;
+}
+@media (max-width: 768px) {
+  .main .content .secondary-container .output-container .footer {
+    font-size: 1rem;
+  }
+}
+.main .content .secondary-container .history {
+  flex: 1;
+  padding: 1rem;
+}
+.main .content .secondary-container .history .header {
+  font-size: 2.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+@media (max-width: 768px) {
+  .main .content .secondary-container .history .header {
+    font-size: 1.75rem;
+  }
+}
+.main .content .secondary-container .history .header .reset-history-button {
+  padding: 0.5rem 2rem;
+  background: rgba(159, 220, 60, 0.1568627451);
+  border: 1px solid var(--secondary-text);
+  color: var(--secondary-text);
+  border-radius: 0.4rem;
+  font-size: 1.5rem;
+}
+@media (max-width: 768px) {
+  .main .content .secondary-container .history .header .reset-history-button {
+    font-size: 1rem;
+    padding: 0.4rem 1rem;
+  }
+}
+.main .content .secondary-container .history .history-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+.main .content .secondary-container .history .history-container .history-data {
+  display: flex;
+  font-size: 1.25rem;
+  justify-content: space-between;
+  padding: 0.5rem;
+  border-bottom: 1px solid var(--ternery-text);
+}
+@media (max-width: 768px) {
+  .main .content .secondary-container .history .history-container .history-data {
+    font-size: 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+}
+.main .content .secondary-container .history .history-container .history-data .name {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+.main .content .secondary-container .history .history-container .history-data .name .category {
+  background: rgba(20, 56, 33, 0.4588235294);
+  padding: 0.25rem;
+  border-radius: 0.25rem;
+}
+.main .content .secondary-container .history .history-container .history-data .index {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+.main .content .secondary-container .history .history-container .history-data .index button {
+  background: transparent;
+  color: var(--number-color);
+  border: none;
+  font-size: 1.25rem;
+  cursor: pointer;
+}
+@media (max-width: 768px) {
+  .main .content .secondary-container .history .history-container .history-data .index button {
+    font-size: 1rem;
+  }
 }/*# sourceMappingURL=styles.css.map */
